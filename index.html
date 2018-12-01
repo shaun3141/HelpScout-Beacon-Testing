@@ -1,0 +1,64 @@
+<html>
+<head>
+</head>
+<body>
+  <script type="text/javascript">
+    !function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});
+  </script>
+  <script type="text/javascript"> // Elevio
+    !function(e,l,v,i,o,n){e[i]||(e[i]={}),e[i].account_id=n;var g,h;g=l.createElement(v),g.type="text/javascript",g.async=1,g.src=o+n,h=l.getElementsByTagName(v)[0],h.parentNode.insertBefore(g,h);e[i].q=[];e[i].on=function(z,y){e[i].q.push([z,y])}}(window,document,"script","_elev","https://cdn.elev.io/sdk/bootloader/v4/elevio-bootloader.js?cid=","59c0562349d36");
+    /*
+     * For passing user information, please see
+     * https://api-docs.elevio.help/en/articles/24
+     */
+     window._elev.on('load', function(_elev) {
+      _elev.setSettings({
+        side: 'left'
+      });
+    });
+  </script>
+
+  <script>
+    const ELEVIO_HELPSCOUT_MODULE_ID = 11;
+    const HS_BEACON_ID = 'cc1af104-2a6a-4e75-99d9-f1fbe81e1ec4';
+    const HS_USER_HASH_SIGNATURE = 'ServerGeneratedHmac';
+    // Secret key = SHCq1bVCUnqkpibpXaCfovo2Qog23FYo/qtqBLxLm10=
+    // Hash with Email
+    const HS_TENANT_ID_FIELD_ID = 12233;
+    const HS_SERVICE_LEVEL_FIELD_ID = 12234;
+    const HS_ASSIGNED_CSM_FIELD_ID = 12115;
+
+    window._elev.events = {
+      moduleOpened: function(id) {
+        if (id == ELEVIO_HELPSCOUT_MODULE_ID) {
+          Beacon("open");
+        }
+      },
+    };
+
+    Beacon('config', {
+      "display": {
+        "style": "manual"
+      }
+    });
+
+    Beacon("identify", {
+      name: "Steve Aoki",
+      email: "steve@aoki.com",
+      signature: HS_USER_HASH_SIGNATURE,
+      is_admin: true,
+      other_stuff: 'metadata'
+    });
+
+    Beacon("prefill", {
+      fields: [
+        {id: HS_TENANT_ID_FIELD_ID, value: '123'},
+        {id: HS_SERVICE_LEVEL_FIELD_ID, value: 'standard'},
+        {id: HS_ASSIGNED_CSM_FIELD_ID, value: 'unknown@engagio.com'}
+      ]
+    });
+
+    Beacon('init', 'cc1af104-2a6a-4e75-99d9-f1fbe81e1ec4');
+  </script>
+</body>
+</html>
