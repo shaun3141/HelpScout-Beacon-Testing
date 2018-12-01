@@ -1,0 +1,1 @@
+# HelpScout-Beacon-Testing
